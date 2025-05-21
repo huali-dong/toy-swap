@@ -1,7 +1,42 @@
 {
   "pages": [
-    "pages/index/index"
+    "pages/index/index",
+    "pages/publish/publish",
+    "pages/message/message",
+    "pages/profile/profile"
   ],
+  "tabBar": {
+    "color": "#999",
+    "selectedColor": "#14A968",
+    "backgroundColor": "#fff",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "images/tabbar/home.png",
+        "selectedIconPath": "images/tabbar/home-active.png"
+      },
+      {
+        "pagePath": "pages/publish/publish",
+        "text": "发布",
+        "iconPath": "images/tabbar/add.png",
+        "selectedIconPath": "images/tabbar/add-active.png"
+      },
+      {
+        "pagePath": "pages/message/message",
+        "text": "消息",
+        "iconPath": "images/tabbar/message.png",
+        "selectedIconPath": "images/tabbar/message-active.png"
+      },
+      {
+        "pagePath": "pages/profile/profile",
+        "text": "我的",
+        "iconPath": "images/tabbar/user.png",
+        "selectedIconPath": "images/tabbar/user-active.png"
+      }
+    ]
+  },
   "window": {
     "navigationBarTitleText": "玩具交换",
     "navigationBarBackgroundColor": "#fff",

@@ -1,6 +1,53 @@
-<!--index.wxml-->
-<scroll-view class="scrollarea" scroll-y type="list">
-  <view class="container">
-    hello 你好啊
+<!-- index.wxml -->
+<navigation-bar title="玩具交换中心" class="navigation-bar"></navigation-bar>
+<!-- 搜索栏 -->
+<view class="search-bar">
+  <view class="search-input">
+    <icon type="search" size="14" color="#999"></icon>
+    <input type="text" placeholder="搜索玩具" placeholder-class="placeholder" />
+  </view>
+</view>
+<!-- 分类导航 -->
+<view class="category-nav">
+  <scroll-view scroll-x class="category-scroll">
+    <view class="category-item {{currentCategory === 'all' ? 'active' : ''}}" data-category="all" bindtap="switchCategory">
+      全部
+    </view>
+    <view class="category-item {{currentCategory === 'puzzle' ? 'active' : ''}}" data-category="puzzle" bindtap="switchCategory">
+      益智类
+    </view>
+    <view class="category-item {{currentCategory === 'sports' ? 'active' : ''}}" data-category="sports" bindtap="switchCategory">
+      运动类
+    </view>
+    <view class="category-item {{currentCategory === 'electronic' ? 'active' : ''}}" data-category="electronic" bindtap="switchCategory">
+      电子类
+    </view>
+    <view class="category-item {{currentCategory === 'other' ? 'active' : ''}}" data-category="other" bindtap="switchCategory">
+      其他
+    </view>
+  </scroll-view>
+</view>
+<!-- 内容区域 -->
+<scroll-view scroll-y class="content-scroll">
+  <!-- 推荐玩具 -->
+  <view class="section">
+    <view class="section-title">推荐玩具</view>
+    <view class="toy-list">
+      <view class="toy-item" wx:for="{{recommendToys}}" wx:key="id" bindtap="goToDetail" data-id="{{item.id}}">
+        <image class="toy-image" src="{{item.image}}" mode="aspectFill"></image>
+        <view class="toy-info">
+          <view class="toy-name">{{item.name}}</view>
+          <view class="toy-condition">新旧程度：{{item.condition}}</view>
+          <view class="toy-distance">距离：{{item.distance}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 附近玩具 -->
+  <view class="section">
+    <view class="section-title">附近玩具</view>
+    <view class="map-container">
+      <map class="map" latitude="{{latitude}}" longitude="{{longitude}}" markers="{{markers}}" scale="14" show-location></map>
+    </view>
   </view>
 </scroll-view>
